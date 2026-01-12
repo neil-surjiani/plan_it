@@ -1,3 +1,5 @@
+import 'package:day_planner/about.dart';
+import 'package:day_planner/main.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'task_data.dart';
@@ -36,9 +38,9 @@ class _SettingsPageState extends State<SettingsPage> {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('tasks');
     tasksNotifier.value = [];
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('All tasks have been reset!')),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text('All tasks have been reset!')));
   }
 
   @override
@@ -50,11 +52,11 @@ class _SettingsPageState extends State<SettingsPage> {
           style: TextStyle(
             color: Colors.white,
             fontSize: 24,
-            fontWeight: FontWeight.bold
-          )
+            fontWeight: FontWeight.bold,
+          ),
         ),
         backgroundColor: const Color.fromARGB(255, 38, 38, 38),
-        iconTheme: const IconThemeData(color: Colors.white,),
+        iconTheme: const IconThemeData(color: Colors.white),
         centerTitle: true,
       ),
       backgroundColor: const Color.fromARGB(255, 43, 43, 43),
@@ -97,6 +99,15 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             trailing: const Icon(Icons.refresh, color: Colors.white),
             onTap: _resetTasks,
+          ),
+          ListTile(
+            title: const Text(
+              'About',
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            onTap: () {
+            navigateTo(context, AboutPage());
+            },
           ),
         ],
       ),

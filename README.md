@@ -112,7 +112,6 @@ Built by a student developer learning **Flutter, product thinking, and app devel
 ---
 
 ## 📜 License
-
 This project is for **learning and personal use**. Feel free to fork and experiment.
 
 ---
