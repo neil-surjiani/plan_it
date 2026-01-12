@@ -22,7 +22,6 @@ class _AddTaskState extends State<AddTask> {
   final List<String> timeIntervals = List.generate(48, (index) {
     final hour = index ~/ 2;
     final minute = (index % 2) * 30;
-
     final h = hour.toString().padLeft(2, '0');
     final m = minute.toString().padLeft(2, '0');
 
@@ -100,14 +99,6 @@ class _AddTaskState extends State<AddTask> {
         ),
         backgroundColor: const Color.fromARGB(255, 38, 38, 38),
         automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings), // your icon
-            onPressed: () {
-              //Navigator.push(context,MaterialPageRoute(builder: (context) => const NumGuess()));
-            },
-          ),
-        ],
         title: const Text(
           'Add Tasks',
           style: TextStyle(

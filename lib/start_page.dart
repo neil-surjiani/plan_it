@@ -4,6 +4,7 @@ import 'package:day_planner/add_task.dart';
 import 'main.dart';
 import 'task_data.dart';
 import 'dart:convert';
+import 'settings.dart';
 
 class Task {
   String description;
@@ -108,7 +109,7 @@ class _StartState extends State<Start> {
           IconButton(
             icon: const Icon(Icons.settings), // your icon
             onPressed: () {
-              //Navigator.push(context,MaterialPageRoute(builder: (context) => const AddTask()));
+              navigateTo(context, SettingsPage());
             },
           ),
         ],
@@ -171,15 +172,17 @@ class _StartState extends State<Start> {
                               Expanded(
                                 child: Text(
                                   "${index + 1}. ${task.description}",
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontSize: 24,
-                                    color: Colors.white,
+                                    color: task.category == 'Urgent'
+                                        ? Colors.red
+                                        : Colors.white70,
                                   ),
                                 ),
                               ),
                               Text(
                                 "${task.startTime} - ${task.endTime}",
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontSize: 20,
                                   color: Colors.white70,
                                 ),
